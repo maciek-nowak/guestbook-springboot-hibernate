@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Maciek's Nowak guestbook">
+        <meta name="keywords" content="contact, guestbook">
+        <meta name="author" content="Maciej Nowak">
+        <link rel="stylesheet" href="/css/reset.css">
+        <link rel="stylesheet" href="/css/style.css">
+        <title>Guest book</title>
+    </head>
+    <body>
+        <header class="jumbotron text-center">
+            <h1>Hyper book GUESTBOOK!</h1>
+        </header>
+        <main>
+            {% for entry in entries %}
+            <div class="entry">
+                <p>{{ entry.getContent() }}</p>
+                <p>Name: {{ entry.getName() }}</p>
+                <p>Date: {{ entry.getFormattedDate() }}</p>
+            </div>
+            {% endfor %}
+            <form method="post">
+                <label for="Name">Name:</label>
+                <input type="text" id="Name" name="name" placeholder="Enter your name" required>
+                <label for="Content">Message:</label>
+                <textarea name="content" id="Content" placeholder="Type the message you want to put on my website" required></textarea>
+                <input type="submit" value="Submit">
+            </form>
+        </main>
+    </body>
+</html>
